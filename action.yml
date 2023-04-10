@@ -10,7 +10,5 @@ outputs:
   created-tickets: # id of output
     description: 'The list of URLs for the created tickets'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.tech-debt-token }}
+  using: 'node16'
+  main: index.js
