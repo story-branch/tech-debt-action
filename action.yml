@@ -9,6 +9,11 @@ inputs:
 outputs:
   created-tickets: # id of output
     description: 'The list of URLs for the created tickets'
+    value: ${{ steps.run-ruby-script.outputs.created-tickets }}
 runs:
-  using: 'node16'
-  main: index.js
+  using: 'composite'
+  steps:
+    - id: run-ruby-script
+      run: |
+        bundle exec ruby run.rb
+      shell: bash
