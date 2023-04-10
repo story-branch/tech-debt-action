@@ -1,16 +1,16 @@
 # action.yml
-name: 'Hello World'
+name: 'Tech Debt ToDo finder'
 description: 'Greet someone and record the time'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  tech-debt-token:  # id of input
+    description: 'Corgi Tech Debt project token'
     required: true
-    default: 'World'
+    default: ''
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  created-tickets: # id of output
+    description: 'The list of URLs for the created tickets'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.tech-debt-token }}
