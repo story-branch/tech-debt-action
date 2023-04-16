@@ -1,6 +1,9 @@
 # action.yml
 name: 'Tech Debt ToDo finder'
 description: 'Greet someone and record the time'
+branding:
+  icon: filter
+  color: red
 inputs:
   tech-debt-token:  # id of input
     description: 'Corgi Tech Debt project token'
@@ -15,5 +18,5 @@ runs:
   steps:
     - id: run-ruby-script
       run: |
-        bundle exec ruby run.rb
+        todo_agent analyze
       shell: bash
