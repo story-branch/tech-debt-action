@@ -18,5 +18,5 @@ runs:
   steps:
     - id: run-ruby-script
       run: |
-        todo_agent analyze
+        echo "created-tickets=$(todo_agent analyze)" >> $GITHUB_OUTPUT
       shell: bash
