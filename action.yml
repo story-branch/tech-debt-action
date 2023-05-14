@@ -1,0 +1,22 @@
+# action.yml
+name: 'Tech Debt ToDo finder'
+description: 'Greet someone and record the time'
+branding:
+  icon: filter
+  color: red
+inputs:
+  tech-debt-token:  # id of input
+    description: 'Corgi Tech Debt project token'
+    required: true
+    default: ''
+outputs:
+  created-tickets: # id of output
+    description: 'The list of URLs for the created tickets'
+    value: ${{ steps.run-ruby-script.outputs.created-tickets }}
+runs:
+  using: 'composite'
+  steps:
+    - id: run-ruby-script
+      run: |
+        bundle exec ruby lib/action.rb
+      shell: bash
